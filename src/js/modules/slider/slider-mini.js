@@ -14,7 +14,8 @@ export default class MiniSlider extends Slider {
       }
     });
 
-    if (!this.slides[0].closest("button")) { /////
+    if (!this.slides[0].closest("button")) {
+      /////
       this.slides[0].classList.add(this.activeClass); //////
     } //////
 
@@ -27,7 +28,8 @@ export default class MiniSlider extends Slider {
   }
 
   nextSlide() {
-    if ( ////
+    if (
+      ////
       this.slides[1].tagName == "BUTTON" &&
       this.slides[2].tagName == "BUTTON"
     ) {
@@ -45,7 +47,7 @@ export default class MiniSlider extends Slider {
     }
 
     // this.container.appendChild(this.slides[0]);
-      // this.decorizeSlides();
+    // this.decorizeSlides();
   }
 
   bindTriggers() {
@@ -68,18 +70,20 @@ export default class MiniSlider extends Slider {
   }
 
   init() {
-    this.container.style.cssText = `
+    try {
+      this.container.style.cssText = `
       display: flex;
       flex-wrap: wrap;
       overflow: hidden;
       align-items: flex-start;
     `;
 
-    this.bindTriggers();
-    this.decorizeSlides();
+      this.bindTriggers();
+      this.decorizeSlides();
 
-    if (this.autoplay) {
-      setInterval(() => this.nextSlide(), 5000)
-    }
+      if (this.autoplay) {
+        setInterval(() => this.nextSlide(), 5000);
+      }
+    } catch (e) {}
   }
 }
